@@ -32,6 +32,22 @@
   background-color: rgb(205, 202, 202);
   object-fit: contain;
 }
+.other-images {
+  display: flex;
+
+}
+
+.other-image {
+  margin-right: 10px;
+
+}
+
+.image-delete-button {
+  text-align: center;
+  border: solid 1px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
 
 .item-price-box {
   margin: 25px 0px;

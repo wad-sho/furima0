@@ -227,3 +227,19 @@
 .inc {
   font-size: 13px;
 }
+
+.preview-image{
+  height: 100px;
+  width: 100px;
+}
+.tag-field{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.input-tag{
+  padding-left: 10px;
+}
+

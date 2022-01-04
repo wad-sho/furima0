@@ -1,6 +1,6 @@
 <%= render "shared/second-header"%>
 
-<%= form_with model: @user,url: user_session_path,class: 'registration-main', local: true do |f| %>
+<%= form_with model: @wada,url: new_wada_session_path,class: 'registration-main', local: true do |f| %>
 <%# これないとログイン失敗 %>
 <div class='form-wrap'>
   <div class='form-header'>

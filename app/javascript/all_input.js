@@ -1,4 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
+  var faker = require("faker");
   const path = location.pathname
   const params = path.replace(/items/g, '').replace(/transactions/g, '').replace(/\//g, '');
   const button = document.getElementById("button");
@@ -23,25 +24,25 @@ window.addEventListener("DOMContentLoaded", () => {
     })
   }
   // 新規登録
-  if (path == "/users/sign_up") {
+  if (path == "/wadas/sign_up") {
     button.addEventListener("click", (e) => {
       e.preventDefault();
-      document.getElementById("nickname").value = "テスト太郎";
+      document.getElementById("nickname").value = faker.name.firstName;
       document.getElementById("email").value = "test@111";
       document.getElementById("first-name").value = "田中";
       document.getElementById("last-name").value = "太郎";
       document.getElementById("first-name-kana").value = "タナカ";
       document.getElementById("last-name-kana").value = "タロウ";
-      const birth1 = document.getElementById("user_birth_date_1i").options;
+      const birth1 = document.getElementById("wada_birth_date_1i").options;
       birth1[1].selected = true ;
-      const birth2 = document.getElementById("user_birth_date_2i").options;
+      const birth2 = document.getElementById("wada_birth_date_2i").options;
       birth2[1].selected = true ;
-      const birth3 = document.getElementById("user_birth_date_3i").options;
+      const birth3 = document.getElementById("wada_birth_date_3i").options;
       birth3[1].selected = true ;
     })
   }
   // 商品購入
-  if (path.includes("items") && path.includes("transactions") && /^([1-9]\d*|0)$/.test(params)) {
+  if (path.includes("items") && path.includes("orders")) {
     button.addEventListener("click", (e) => {
       e.preventDefault();
       document.getElementById("card-number").value = "4242424242424242";
