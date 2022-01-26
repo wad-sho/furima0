@@ -21,8 +21,10 @@
       <li><%= link_to 'ログアウト', destroy_wada_session_path, method: :delete, class: "logout" %></li> 
       <% else %>
       <li><%= link_to 'ログイン', wada_session_path, class: "login" %></li>
-      <li><%= link_to '新規登録', new_wada_registration_path, class: "sign-up" %></li>
+      <li><%= link_to '新規登録', new_wada_registration_path, class: "sign-up" %></li>       
       <% end %>
+       <%= link_to "Facebookで登録", wada_facebook_omniauth_authorize_path, method: :post%>
+     <%= link_to "Googleで登録", wada_google_oauth2_omniauth_authorize_path, method: :post%>
       <%# //deviseを導入できたら、ログインの有無で表示が変わるように分岐しましょう%>
     </ul>
   </div>

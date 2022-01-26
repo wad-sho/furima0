@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
   def create
     @item = Item.find(params[:item_id])
     @wada = PayForm.new(order_params)
+    binding.pry
     if @wada.valid?
       paypay
       @wada.save
@@ -38,6 +39,7 @@ class OrdersController < ApplicationController
 
   def set_purehase
     @item = Item.find(params[:item_id])
-    redirect_to root_path if @item.order.present?
+    redirect_to root_path if @item.order
+   
   end
 end

@@ -11,7 +11,16 @@ RSpec.describe Wada, type: :model do
         expect(@user).to be_valid
       end
     end
+
     context '正常に登録ができない場合' do
+      blank_check_list = [:nickname, :email, :last_name, :first_name, :last_name_kana, :first_name_kana, :birth_date]
+
+      blank_check_list.each do |key|
+        it "#{key}が空では登録できない" do
+          blank_check(@user, key)
+        end
+      end
+
       it 'nicknameが空だと登録ができない' do
         @user.nickname = ''
         @user.valid?

@@ -2,7 +2,7 @@ class Wada < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   # <<バリデーション>>
   validates :nickname, presence: true, uniqueness: { case_sensitive: true }
@@ -28,5 +28,20 @@ class Wada < ApplicationRecord
   # <<アソシエーション>>
   has_many :items
   has_many :orders
+  has_many :sns_credentials
+
+  def self.from_omniauth(auth)
+    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
+    wada = Wada.where(email: auth.info.email).first_or_initialize(
+      nickname: auth.info.name,
+        email: auth.info.email
+    )
+  
+  if wada.persisted?
+    sns.wada = wada
+    sns.save
+  end
+  { wada: wada, sns: sns }
+end
 end
 

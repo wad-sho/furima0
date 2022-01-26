@@ -4,6 +4,8 @@
 <%# これないとログイン失敗 %>
 <div class='form-wrap'>
   <div class='form-header'>
+  <%= link_to 'Facebookでログイン', wada_facebook_omniauth_authorize_path, method: :post %>
+<%= link_to 'Googleでログイン', wada_google_oauth2_omniauth_authorize_path, method: :post %>
     <h1 class='form-header-text'>
       会員情報入力
     </h1>

@@ -33,7 +33,7 @@
     </div>
 
     <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
-   <% if wada_signed_in? && @item.order.blank?%>
+   <% if wada_signed_in? && @item.order%>
    <% if current_wada.id == @item.wada_id %>
     <%= link_to "商品の編集", edit_item_path(@item), method: :get, class: "item-red-btn" %>
     <p class="or-text">or</p>

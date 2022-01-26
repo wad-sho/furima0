@@ -4,7 +4,9 @@ class ItemsController < ApplicationController
   before_action :move_to_index, only: [:edit, :update]
 
   def index
-    @items = Item.includes(:wada).order('created_at DESC')
+    @items = Item.order('created_at DESC')
+ 
+   
   end
 
   def new
@@ -51,9 +53,10 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    return redirect_to root_path unless wada_signed_in? 
+       binding.pry
+    return redirect_to root_path if @item.order
+    
   end
-
   private
 
   def item_params

@@ -15,7 +15,6 @@ class WadaForm
   end
 
   def save
-    binding.pry
     order = Order.create(
       item_id: item_id,
       wada_id: wada_id

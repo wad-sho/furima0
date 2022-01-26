@@ -21,9 +21,7 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :info
-    validates :price, numericality: { 
-      greater_than_or_equal_to: 300,
-      less_than_or_equal_to: 9_999_999 }
+    validates :price,numericality: { only_integer: true }
   end
 
   # 金額の範囲
