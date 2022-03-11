@@ -14,13 +14,13 @@ class Wada < ApplicationRecord
   validates_format_of :password, with: PASSWORD_REGEX, message: 'is invalid'
 
   # 全角のひらがなor漢字を使用していないか検証
-  with_options presence: true,  format: { with: /\A[ぁ-んァ-ン一-龥]/ } do
+  with_options presence: true,  format: { with: /\A[ぁ-ゔァ-ヴ一-龥]+\z/} do
     validates :last_name
     validates :first_name
   end
-  valid_name_kana_regex = /\A[ァ-ヶー]+\z/
+  # valid_name_kana_regex = /\A[ァ-ヶー]+\z/
   # 全角のカタカナを使用していないか検証
-  with_options presence: true, format: { with: /\A[ァ-ヶー]+\z/ } do
+  with_options presence: true, format: { with: /\A[ァ-ヴ]+\z/ } do
     validates :last_name_kana
     validates :first_name_kana
   end
