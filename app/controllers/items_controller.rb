@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_wada!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_item, only: [:show, :edit, :destroy, :update]
-  before_action :move_to_index, only: [:edit]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_index, only: [:edit, :update]
 
   def index
     @items = Item.order('created_at DESC')
@@ -17,7 +17,6 @@ class ItemsController < ApplicationController
     
     @item = ItemsTag.new(item_params)
     @item.price = item_params[:price].to_i
-
     #     また、入力した商品情報がバリデーションを通過しなかった場合、再度「商品出品ページ」が表示されるように実装しましょう。
     # バリデーション通過の可否を条件に処理を分岐させ、エラーメッセージが表示されるように適切なメソッドを用いて記述してください。
     if @item.valid?
@@ -49,20 +48,17 @@ class ItemsController < ApplicationController
     end
   end
 
- 
-
- 
-  private
-
-  def move_to_index
-    return redirect_to root_path if @item.wada != current_wada or @item.order.present?
-    
-  end
-
   def set_item
     @item = Item.find(params[:id])
   end
-  
+
+  def move_to_index
+       binding.pry
+    return redirect_to root_path if @item.order
+    
+  end
+  private
+
   def item_params
     params.require(:items_tag).permit(
       :image,

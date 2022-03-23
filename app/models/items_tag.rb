@@ -26,8 +26,7 @@ class ItemsTag
 
   # 金額の範囲
   # validates_inclusion_of :price, in: 300..9_999_999, message: 'Out of setting range'
-    # greater_than_or_equal_to: 300,
-    # less_than_or_equal_to: 9_999_999 }
+  validates :price, presence: true, inclusion: { in: 300..9_999_999, message: 'is invalid. Input half-width characters. Price is out of setting range' }
   def save
     tag = Tag.where(tag_name: tag_name).first_or_initialize
     tag.save
@@ -42,6 +41,9 @@ class ItemsTag
       scheduled_delivery_id: scheduled_delivery_id,
       wada_id: wada_id,
       images: images)
+      
+  
+    item.save
 
   end
 

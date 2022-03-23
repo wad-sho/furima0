@@ -1,27 +1,16 @@
-const price = () => {
-  const form = document.getElementById('item-price');
-  form.addEventListener('keyup', () => {
-    if (!isNaN(form.value)) {
-      const commission = form.value / 10;
-      document.getElementById("add-tax-price").innerHTML = parseInt(commission, 10);
-      document.getElementById("profit").innerHTML = parseInt(form.value - commission, 10);
-    };
-  });
-};
 
-window.addEventListener('load', price); 
-// window.addEventListener('load', () => {
-//   const priceInput = document.getElementById("item-price");
-//    priceInput.addEventListener("input", () => {
+window.addEventListener('load', () => {
+  const priceInput = document.getElementById("item-price");
+   priceInput.addEventListener("input", () => {
 
-//      const inputValue = priceInput.value;
-//      const addTaxDom = document.getElementById("add-tax-price"); 
-//      const addProfitDom = document.getElementById("profit");
+     const inputValue = priceInput.value;
+     const addTaxDom = document.getElementById("add-tax-price"); 
+     const addProfitDom = document.getElementById("profit");
   
-//      addTaxDom.innerHTML = Math.floor(inputValue * 0.1);
-//      addProfitDom.innerHTML = Math.floor(inputValue - Math.floor(inputValue * 0.1)); 
-//   })
-// })
+     addTaxDom.innerHTML = Math.floor(inputValue * 0.1);
+     addProfitDom.innerHTML = Math.floor(inputValue - Math.floor(inputValue * 0.1)); 
+  })
+})
 
 
 // ＝＝＝パターン２

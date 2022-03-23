@@ -1,4 +1,4 @@
-class OrderSend
+class PayForm
   include ActiveModel::Model
   # Active Recordの場合と同様に form_with や render などのヘルパーメソッドが使用できるようになる
 
