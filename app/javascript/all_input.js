@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const path = location.pathname
   const params = path.replace(/items/g, '').replace(/transactions/g, '').replace(/\//g, '');
   const button = document.getElementById("button");
-  console.log(path)
+  // console.log(path)
   // 商品出品
   if (path == "/items/new") {
     button.addEventListener("click", (e) => {

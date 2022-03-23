@@ -1,5 +1,6 @@
 const price = () => {
   const form = document.getElementById('item-price');
+  if (!form) return null;
   form.addEventListener('keyup', () => {
     if (!isNaN(form.value)) {
       const commission = form.value / 10;
