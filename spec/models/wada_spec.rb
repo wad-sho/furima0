@@ -26,6 +26,8 @@ RSpec.describe Wada, type: :model do
       end
       it 'passwordが６文字以下だと登録ができない' do
         @user.password = 'aA1'
+        binding.pry
+        # @user.password_confirmation = 'aA1'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
       end

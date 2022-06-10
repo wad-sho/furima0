@@ -1,4 +1,4 @@
-class OrderSend
+class PayForm
   include ActiveModel::Model
   # Active Recordの場合と同様に form_with や render などのヘルパーメソッドが使用できるようになる
 
@@ -28,7 +28,7 @@ class OrderSend
       wada_id: wada_id
     )
     Address.create(
-      order_id: order.id,
+      order: order,
       # 保存された情報を持つ変数orderから、idだけを取り出し、order_idとして保存を行う
       postal_code: postal_code,
       prefecture_id: prefecture_id,

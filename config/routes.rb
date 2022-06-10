@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     registrations: 'wadas/registrations'
   }
   root 'items#index'
+  # get '/', to: 'items#index'
+  
   resources :items do
     resources :orders 
   end

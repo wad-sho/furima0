@@ -1,15 +1,4 @@
-const price = () => {
-  const form = document.getElementById('item-price');
-  form.addEventListener('keyup', () => {
-    if (!isNaN(form.value)) {
-      const commission = form.value / 10;
-      document.getElementById("add-tax-price").innerHTML = parseInt(commission, 10);
-      document.getElementById("profit").innerHTML = parseInt(form.value - commission, 10);
-    };
-  });
-};
 
-window.addEventListener('load', price); 
 // window.addEventListener('load', () => {
 //   const priceInput = document.getElementById("item-price");
 //    priceInput.addEventListener("input", () => {
@@ -23,6 +12,20 @@ window.addEventListener('load', price);
 //   })
 // })
 
+// function post (){
+//   const addTaxPrice = document.getElementById("add-tax-price");
+//   const profit = document.getElementById("profit");
+//   const itemPrice = document.getElementById("item-price");
+
+//   itemPrice.addEventListener("input", () => {
+//     let tax = Math.floor(itemPrice.value * 0.1);
+//     addTaxPrice.innerHTML = tax;
+//     profit.innerHTML = itemPrice.value - tax;
+//   });
+
+// };
+
+// window.addEventListener('load', post);
 
 // ＝＝＝パターン２
 // // ①　JSを動かす記述
@@ -74,3 +77,19 @@ window.addEventListener('load', price);
 
 
 // window.addEventListener('load', calculate); 
+
+window.addEventListener('load', () => {
+
+  const priceInput = document.getElementById("item-price");
+  priceInput.addEventListener("input", () => {
+    const inputValue = priceInput.value;
+
+    const addTaxDom = document.getElementById("add-tax-price");
+
+    addTaxDom.innerHTML = Math.floor(inputValue * 0.1);
+
+    const profit = document.getElementById("profit");
+    profit.innerHTML = inputValue - addTaxDom.innerHTML ;
+  })
+
+});

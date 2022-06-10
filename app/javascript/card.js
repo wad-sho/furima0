@@ -1,6 +1,6 @@
 const pay = () => {
   Payjp.setPublicKey(process.env.PAYJP_PK);// PAY.JPテスト公開鍵
-  console.log(process.env.PAYJP_PK)
+  
   const form = document.getElementById("charge-form");
   // フォーム全体のidであるcharge-formを取得
   form.addEventListener("submit", (e) => {
@@ -16,10 +16,10 @@ const pay = () => {
 // 非同期通信で送信する必要があるためフォームの値を取得します。
 
     const card = {
-      number: formData.get("wada_form[n]"),
-      cvc: formData.get("wada_form[c]"),
-      exp_month: formData.get("wada_form[m]"),
-      exp_year: `20${formData.get("wada_form[y]")}`,
+      number: formData.get("pay_form[n]"),
+      cvc: formData.get("pay_form[c]"),
+      exp_month: formData.get("pay_form[m]"),
+      exp_year: `20${formData.get("pay_form[y]")}`
     };
      console.log(card);
     // 生成したFormDataオブジェクトから、

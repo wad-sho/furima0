@@ -4,7 +4,7 @@ class WadaForm
 
   attr_accessor :token, :wada_id, :item_id, :prefecture_id, :postal_code, :city, :address, :building, :phone_number
 
-  with_options presence: true do
+  options presence: true do
     validates :postal_code
     validates :prefecture_id
     validates :city
