@@ -19,7 +19,7 @@ const pay = () => {
       number: formData.get("pay_form[n]"),
       cvc: formData.get("pay_form[c]"),
       exp_month: formData.get("pay_form[m]"),
-      exp_year: `20${formData.get("pay_form[y]")}`
+      exp_year: `20${formData.get("pay_form[y]")}`,
     };
      console.log(card);
     // 生成したFormDataオブジェクトから、
