@@ -1,90 +1,12 @@
-
-// window.addEventListener('load', () => {
-//   const priceInput = document.getElementById("item-price");
-//    priceInput.addEventListener("input", () => {
-
-//      const inputValue = priceInput.value;
-//      const addTaxDom = document.getElementById("add-tax-price"); 
-//      const addProfitDom = document.getElementById("profit");
-
-// function post (){
-//   const addTaxPrice = document.getElementById("add-tax-price");
-//   const profit = document.getElementById("profit");
-//   const itemPrice = document.getElementById("item-price");
-
-//   itemPrice.addEventListener("input", () => {
-//     let tax = Math.floor(itemPrice.value * 0.1);
-//     addTaxPrice.innerHTML = tax;
-//     profit.innerHTML = itemPrice.value - tax;
-//   });
-
-// };
-
-// window.addEventListener('load', post);
-
-// ＝＝＝パターン２
-// // ①　JSを動かす記述
-// window.addEventListener("load", function(){
-
-//   // ②　価格入力欄のID属性を手がかりに入力値を変数Aに入れる
-//  const priceInput = document.getElementById("item-price")
-// //  住所情報を取得
-
-// // ③　上記で入れた変数Aに対しての発火条件を書く
-//   priceInput.addEventListener("input", function(){
-// // ④　②の中で入力された値を取り出して変数Bに入れる
-//   const price = document.getElementById("item-price").value
-
-// // ⑤　変数Bに対して計算し変数C,Dに入れる（出品手数料Cと利益D）  
-//     const tax = Math.floor(price * 0.1)
-//     const profit = price - tax
-
-// // ⑥手数料部分には変数Cの値を入れる
-//     const taxForm = document.getElementById("add-tax-price")
-//     taxForm.textContent = tax
-//     // Math.floor()  小数点の切り捨て
-
-// // ⑦利益部分に変数Dの値を入れる
-//     const profitForm = document.getElementById("profit")
-//     profitForm.textContent = profit
-
-
-//   })
-// });
-
-
-// ＝＝＝パターン３
-// function calculate (){
-//   const itemPrice = document.getElementById("item-price");
-
-
-//   itemPrice.addEventListener('keyup', () => {
-//     const priceCommission = document.getElementById('add-tax-price');
-//     const priceProfit = document.getElementById('profit');
-//     const tax = itemPrice.value / 10;
-//     const commissionValue = parseInt(tax).toLocaleString();
-//     const profitValue = parseInt(itemPrice.value - tax).toLocaleString();
-
-//     priceCommission.innerHTML = `${commissionValue}`;
-//     priceProfit.innerHTML = `${profitValue}`;
-//   });
-// };
-
-
-// window.addEventListener('load', calculate); 
-
 window.addEventListener('load', () => {
-
   const priceInput = document.getElementById("item-price");
   priceInput.addEventListener("input", () => {
-    const inputValue = priceInput.value;
-
-    const addTaxDom = document.getElementById("add-tax-price");
-
-    addTaxDom.innerHTML = Math.floor(inputValue * 0.1);
-
-    const profit = document.getElementById("profit");
-    profit.innerHTML = inputValue - addTaxDom.innerHTML ;
+  const inputValue = priceInput.value;
+  const addTaxDom = document.getElementById("add-tax-price");
+  const ProfitDom = document.getElementById("profit");
+  // 入力した金額をもとに販売手数料を計算する処理
+  addTaxDom.innerHTML = Math.floor(inputValue * 0.1);
+  // 出品価格から販売手数料を引く処理
+  ProfitDom.innerHTML = inputValue - addTaxDom.innerHTML;
   })
-
 });

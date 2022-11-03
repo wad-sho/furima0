@@ -5,10 +5,15 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
     # ネスト構造でないとこの書き方ができない
     @wada = PayForm.new
+    if @item.order.blank?
+      redirect_to root_path if current_wada == @item.wada
+    else
+      redirect_to root_path
+   end 
   end
 
   def create
-    @item = Item.find(params[:item_id])
+    @item = Item.find params[:item_id]
     @wada = PayForm.new(order_params)
     binding.pry
     if @wada.valid?

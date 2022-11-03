@@ -10,7 +10,7 @@ class Wada < ApplicationRecord
   validates :birth_date, presence: true
 
   # パスワードの英数字混在を否定
-  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
+  PASSWORD_REGEX = /\A[a-z0-9]+\z/i
   validates_format_of :password, with: PASSWORD_REGEX, message: 'is invalid'
 
   # 全角のひらがなor漢字を使用していないか検証

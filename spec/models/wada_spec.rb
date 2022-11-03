@@ -12,19 +12,12 @@ RSpec.describe Wada, type: :model do
       end
     end
 
-    context '正常に登録ができない場合' do
-      blank_check_list = [:nickname, :email, :last_name, :first_name, :last_name_kana, :first_name_kana, :birth_date]
-
-      blank_check_list.each do |key|
-        it "#{key}が空では登録できない" do
-          blank_check(@user, key)
-        end
-      end
+ 
 
       it 'nicknameが空だと登録ができない' do
         @user.nickname = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Nickname can't be blank")
+        expect(@user.errors.full_message).to include("Nickname can't be blank")
       end
       it 'passwordが空だと登録ができない' do
         @user.password = ''
@@ -33,7 +26,6 @@ RSpec.describe Wada, type: :model do
       end
       it 'passwordが６文字以下だと登録ができない' do
         @user.password = 'aA1'
-        binding.pry
         # @user.password_confirmation = 'aA1'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
@@ -126,5 +118,5 @@ RSpec.describe Wada, type: :model do
       end
     end
   end
-end
+
 

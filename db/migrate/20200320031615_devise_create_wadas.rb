@@ -45,3 +45,4 @@ class DeviseCreateWadas < ActiveRecord::Migration[6.0]
     # add_index :wadas, :unlock_token,         unique: true
   end
 end
+
