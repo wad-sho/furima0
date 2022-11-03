@@ -1,6 +1,7 @@
 const pay = () => {
   Payjp.setPublicKey(process.env.PAYJP_PK);// PAY.JPテスト公開鍵
-  
+
+  console.log(process.env.PAYJP_PK);
   const form = document.getElementById("charge-form");
   // フォーム全体のidであるcharge-formを取得
   form.addEventListener("submit", (e) => {
