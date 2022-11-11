@@ -55,7 +55,6 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-       binding.pry
     return redirect_to root_path if @item.order
     
   end
