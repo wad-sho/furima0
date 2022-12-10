@@ -5,7 +5,7 @@ class Wada < ApplicationRecord
   :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   # <<バリデーション>>
-  validates :nickname, presence: true, uniqueness: { case_sensitive: true }
+  validates :nickname, presence: true
 
   validates :birth_date, presence: true
 
@@ -14,7 +14,7 @@ class Wada < ApplicationRecord
   validates_format_of :password, with: PASSWORD_REGEX, message: 'is invalid'
 
   # 全角のひらがなor漢字を使用していないか検証
-  with_options presence: true,  format: { with: /\A[ぁ-んァ-ン一-龥]/ } do
+  with_options presence: true,  format: { with: /\A[ぁ-んァ-ン一-龥々ー]/ } do
     validates :last_name
     validates :first_name
   end
