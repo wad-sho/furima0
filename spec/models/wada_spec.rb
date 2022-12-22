@@ -17,7 +17,7 @@ RSpec.describe Wada, type: :model do
       it 'nicknameが空だと登録ができない' do
         @user.nickname = ''
         @user.valid?
-        expect(@user.errors.full_message).to include("Nickname can't be blank")
+        expect(@user.errors.full_messages).to include("Nickname can't be blank")
       end
       it 'passwordが空だと登録ができない' do
         @user.password = ''
@@ -74,6 +74,7 @@ RSpec.describe Wada, type: :model do
       it 'first_nameが全角（漢字・ひらがな・カタカナ）以外だと登録ができない' do
         @user.first_name = 'test'
         @user.valid?
+        binding.pry
         expect(@user.errors.full_messages).to include("First name is invalid")
       end
       it 'last_nameが空だと登録ができない' do
