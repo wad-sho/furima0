@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
   def create
     @item = Item.find params[:item_id]
     @wada = PayForm.new(order_params)
-    
+    binding.pry
     if @wada.valid?
       paypay
       @wada.save
