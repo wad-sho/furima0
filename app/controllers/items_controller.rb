@@ -54,8 +54,8 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    return redirect_to root_path if @item.order
-    
+    return unless @item.order.present?
+     redirect_to root_path
   end
   private
 
