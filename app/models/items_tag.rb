@@ -22,7 +22,7 @@ class ItemsTag
   end
 
   # 金額が半角であるか検証
-  validates :price, numericality: { message: 'Half-width number' }
+  validates :price, numericality: { only_integer: true, message: 'Half-width number' }
 
   # 金額の範囲
   # validates_inclusion_of :price, in: 300..9_999_999, message: 'Out of setting range'

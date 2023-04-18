@@ -14,7 +14,7 @@ class Wada < ApplicationRecord
   validates_format_of :password, with: PASSWORD_REGEX, message: 'is invalid'
 
   # 全角のひらがなor漢字を使用していないか検証
-  with_options presence: true,  format: { with: /\A[ぁ-んァ-ン一-龥々ー]/ } do
+  with_options presence: true,  format: { with: /\A[ぁ-んァ-ン一-龥々ー]+\z/i } do
     validates :last_name
     validates :first_name
   end

@@ -42,7 +42,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
       end
       it 'priceが全角だと保存ができない' do
-        @item.price = '１０００'
+        @item.price = '１０００円'
         @item.valid?
         expect(@item.errors.full_messages).to include("Price is not a number")
       end

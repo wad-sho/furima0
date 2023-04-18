@@ -22,19 +22,10 @@ class Item < ApplicationRecord
     validates :name
     validates :info
     validates :price,numericality: { only_integer: true }
+    validates :images
   end
 
-  # 金額の範囲
-  # validates :price, numaricality:
-
-  # ..:rubyの範囲オブジェクト　https://docs.ruby-lang.org/ja/latest/class/Range.html
-
-  # numericalityを使うのもあります！
-  # validates :price, numericality: { greater_than_or_equal_to: 300,
-  #                                   less_than_or_equal_to: 9_999_999 }
-  #
-
-  # 選択関係で「---」のままになっていないか検証
+ 
   with_options presence: true, numericality: { other_than: 0 } do
     validates :category_id
     validates :sales_status_id

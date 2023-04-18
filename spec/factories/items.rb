@@ -10,8 +10,8 @@ FactoryBot.define do
     scheduled_delivery_id { 1 }
     wada
 
-    after(:build) do |item|
-      item.images.attach(io: File.open('furima.png'), filename: 'furima.png')
+    after(:build) do |i|
+      i.images.attach(io: File.open('furima.png'), filename: 'furima.png')
     end
   end
 end

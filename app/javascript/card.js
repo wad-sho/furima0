@@ -36,7 +36,7 @@
 const pay = () => {
   debugger;
   //const payjp = Payjp(process.env.PAYJP_PUBLIC_KEY); //環境変数をもとに公開鍵を復号
-  var payjp = Payjp("pk_test_1c4f909c9a84f7bf8f1539bb")
+  const payjp = Payjp("pk_test_1c4f909c9a84f7bf8f1539bb")
   console.log("OK");
   const elements = payjp.elements(); //elementsインスタンスを生成
   const numberElement = elements.create('cardNumber'); //入力欄ごとにelementインスタンスを生成、カッコ内は型で、card, cardNumber, cardExpiry, cardCvcから選択。
